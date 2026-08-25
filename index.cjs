@@ -22,8 +22,11 @@ const MAX_SCREENSHOT_BYTES = 2 * 1024 * 1024;
 const MAX_SCREENSHOT_DATA_URL_LENGTH = 2_900_000;
 
 function setInput(name, fallback) {
-  const key = 'INPUT_' + name.toUpperCase().replace(/-/g, '_');
-  const v = process.env[key];
+  // Newer GitHub runners expose inputs as INPUT_<name-with-hyphens>; older
+  // ones as INPUT_<NAME_WITH_UNDERSCORES>. Accept both.
+  const dashed = 'INPUT_' + name.toUpperCase();
+  const under = 'INPUT_' + name.toUpperCase().replace(/-/g, '_');
+  const v = process.env[dashed] !== undefined ? process.env[dashed] : process.env[under];
   return v === undefined || v === '' ? fallback : v;
 }
 
