@@ -27,5 +27,12 @@ malformed or no files match. Zero dependencies — installs in about a second.
 | `max-report-size-kb` | no | `4096` | Fail any single report file larger than this |
 
 ## License
+## Related
+
+- [bugbottle](https://github.com/mahope/bugbottle) — the in-app collector that produces the reports this action validates
+- [Live demo](https://hermes-passiv.pages.dev/bugbottle-demo.html) — see what a collected report looks like
+- [Clean Copy CLI](https://github.com/mahope/clean-copy-cli) and other free tools at [hermes-passiv.pages.dev/free-tools](https://hermes-passiv.pages.dev/free-tools.html)
+
+
 
 MIT — same as the bugbottle library.
